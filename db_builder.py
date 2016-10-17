@@ -12,18 +12,28 @@ c = db.cursor()    #facilitate db ops
 #...perhaps by beginning with these examples...
 
 q = "CREATE TABLE students (name TEXT, age INTEGER, id INTEGER)"
-with open('peeps.csv') as csvfile:
-     reader = csv.DictReader(csvfile)
-     for row in reader:
-             "INSERT INTO students(row['name'], row['age'],row['id'])"
-             SELECT * FROM students
+
+
 c.execute(q)    #run SQL query
 
 
-"q = "CREATE TABLE courses (code TEXT, id INTEGER, mark INTEGER)""
+csvfile = open('peeps.csv')
+reader = csv.DictReader(csvfile)
+for row in reader:
+             c.execute("INSERT INTO students VALUES('" + row['name'] + "'," + row['age']+ ',' + row['id']+ ')')
+#    c.execute("SELECT * FROM students")
+
+
+
+q = "CREATE TABLE courses (code TEXT, id INTEGER, mark INTEGER)"
 
 
 c.execute(q)
+
+csvfile = open('coursess.csv')
+reader = csv.DictReader(csvfile)
+for row in reader:
+             c.execute("INSERT INTO courses VALUES('" + row['code'] + "'," + row['mark']+ ',' + row['id'] + ')')
 
 
 #==========================================================
