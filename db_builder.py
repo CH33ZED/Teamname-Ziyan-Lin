@@ -30,7 +30,7 @@ q = "CREATE TABLE courses (code TEXT, id INTEGER, mark INTEGER)"
 
 c.execute(q)
 
-csvfile = open('coursess.csv')
+csvfile = open('courses.csv')
 reader = csv.DictReader(csvfile)
 for row in reader:
              c.execute("INSERT INTO courses VALUES('" + row['code'] + "'," + row['mark']+ ',' + row['id'] + ')')
